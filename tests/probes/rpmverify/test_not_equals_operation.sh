@@ -6,6 +6,7 @@ set -e -o pipefail
 
 function perform_test {
 probecheck "rpmverify" || return 255
+require "rpm" || return 255
 
 name=$(basename $0 .sh)
 result=$(mktemp ${name}.out.XXXXXX)
